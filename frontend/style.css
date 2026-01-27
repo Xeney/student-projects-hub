@@ -1,0 +1,12 @@
+#Logo{
+    text-align: center;
+}
+
+nav a{
+    text-decoration:none;
+
+}
+nav a:visited{
+    text-decoration:none;
+    color: inherit;
+}
