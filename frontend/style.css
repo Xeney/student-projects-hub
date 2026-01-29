@@ -15,7 +15,7 @@ body{
 .hat{
     padding-block: 40px;
 }
-.header__container{
+.header__container, .hero__container{
     max-width: 1440px;
     margin-inline: auto;
 }
@@ -39,7 +39,8 @@ ul{
        font-weight: 600;
        font-size: 20px;
        color: var(--gray);
-       transition: color 0.5s;
+       transition: all 0.5s;
+       border-bottom: 3px solid #000000;
 }
 
 .header__list-link:hover{
@@ -58,10 +59,37 @@ a{
     color: var(--dark);
     transition: 0.3s;
 }
+
+.header__button:active{
+    background-color: var(--green);
+    color: var(--dark);
+}
+
 .header__button:hover{
     opacity: 60%;
 }
 
-.header__button:active{
-    background-color: #464646;
+
+
+
+.hero__projects-list{
+    padding: 20px 35px;
+    border: 2px solid var(--dark);
+    border-radius: 14px;
+    background-color: var(--dark);
+    transition: 0.3s;
+    color:white
+}
+
+.hero{
+    padding-block: 30px 65px;
+}
+.hero{
+    position: relative;
+}
+
+.hero__image{
+    position: absolute;
+    top: 0;
+    right: 0;
 }
