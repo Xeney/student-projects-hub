@@ -17,7 +17,7 @@ body{
 .hat{
     padding-block: 40px;
 }
-.header__container, .hero__container, .services__content, .advantages__content{
+.header__container, .hero__container, .services__content, .advantages__content, .create__content{
     max-width: 1440px;
     margin-inline: auto;
     
@@ -132,7 +132,7 @@ a{
     font-weight: 500;
     border: 4px solid var(--green);
     background-color: var(--green);
-     border-radius: 7px;
+    border-radius: 7px;
 }
 
 
@@ -145,4 +145,48 @@ a{
     align-items: center;
     margin-bottom: 187px;
     gap: 40px 30px; 
+}
+
+
+.create__content{
+    position: relative;
+
+    border: 50px solid #F3F3F3;
+    background-color: #F3F3F3;
+    border-radius: 45px;
+}
+.create__title{
+    max-width: 500px;
+    font-size:30px;
+    font-weight: 600;
+    line-height: 38px;
+    margin-bottom: 26px;
+}
+
+.create__description{
+    max-width: 500px;
+    font-size:18px;
+    font-weight: 500;
+    line-height: 23px;
+    margin-bottom: 46px;
+}
+
+.create__button{
+    padding: 20px 35px;
+    border: 2px solid var(--dark);
+    border-radius: 14px;
+    background-color: var(--dark);
+    transition: 0.3s;
+    color:white;
+    margin-top: 26px;
+    font-size:20px ;
+}
+.create__button:hover{
+    opacity: 75%;
+}
+
+.create__logo{
+    position: absolute;
+    top:-90px;
+    right: 0;
 }
