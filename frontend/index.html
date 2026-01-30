@@ -144,79 +144,102 @@
 
         <section class="steps">
             <div class="steps__content">
-                <div class="step">
+                <!-- Карточка 1 -->
+                <div class="step active" onclick="toggleStep(this)">
                     <div class="steps-default">
                         <div class="steps__num">01</div>
                         <div class="steps__title-text">Идея и консультация</div>
-                    
+                        <div class="steps__arrow"></div>
                     </div>
-                    <div class="steps__description">На первом этапе вы определяете цель проекта, предметную область и требования преподавателя. При необходимости — обсуждаете идею с коллегами или менторами, чтобы уточнить техническое задание.
+                    <div class="steps__description">
+                        На первом этапе вы определяете цель проекта, предметную область и требования преподавателя. При необходимости — обсуждаете идею с коллегами или менторами, чтобы уточнить техническое задание.
                     </div>
-
                 </div>
 
-                <div class="step">
+                <!-- Карточка 2 -->
+                <div class="step" onclick="toggleStep(this)">
                     <div class="steps-default">
                         <div class="steps__num">02</div>
                         <div class="steps__title-text">Анализ и планирование</div>
-    
+                        <div class="steps__arrow"></div>
                     </div>
                     <div class="steps__description">
-                        Анализ и планированиеИзучаете аналоги, выбираете технологии (например, Python/Flask для бэкенда, HTML/CSS/JS для фронтенда), проектируете архитектуру и интерфейс. Формируете чек-лист задач.
+                        Изучаете аналоги, выбираете технологии (например, Python/Flask для бэкенда, HTML/CSS/JS для фронтенда), проектируете архитектуру и интерфейс. Формируете чек-лист задач.
                     </div>
-
                 </div>
-                <div class="step">
+
+                <!-- Карточка 3 -->
+                <div class="step" onclick="toggleStep(this)">
                     <div class="steps-default">
                         <div class="steps__num">03</div>
                         <div class="steps__title-text">Реализация</div>
-                    
+                        <div class="steps__arrow"></div>
                     </div>
                     <div class="steps__description">
                         Пишете код, тестируете функционал, отлаживаете ошибки. Создаёте как минимум MVP (минимально жизнеспособный продукт), соответствующий требованиям ТЗ.
                     </div>
                 </div>
-                <div class="step">
+
+                <!-- Карточка 4 -->
+                <div class="step" onclick="toggleStep(this)">
                     <div class="steps-default">
                         <div class="steps__num">04</div>
                         <div class="steps__title-text">Тестирование и доработка</div>
-                    
+                        <div class="steps__arrow"></div>
                     </div>
                     <div class="steps__description">
-                        Тестирование и доработкаПроверяете работоспособность всех модулей, исправляете баги, улучшаете UX/UI. При необходимости — собираете фидбек от одногруппников или преподавателя.
+                        Проверяете работоспособность всех модулей, исправляете баги, улучшаете UX/UI. При необходимости — собираете фидбек от одногруппников или преподавателя.
                     </div>
                 </div>
-                <div class="step">
+
+                <!-- Карточка 5 -->
+                <div class="step" onclick="toggleStep(this)">
                     <div class="steps-default">
                         <div class="steps__num">05</div>
                         <div class="steps__title-text">Публикация на платформе</div>
-                    
+                        <div class="steps__arrow"></div>
                     </div>
                     <div class="steps__description">
-                        Публикация на платформеОформляете карточку проекта: загружаете описание, скриншоты, ссылку на репозиторий (например, GitHub) и технические детали. Проект становится доступен другим студентам.
+                        Оформляете карточку проекта: загружаете описание, скриншоты, ссылку на репозиторий (например, GitHub) и технические детали. Проект становится доступен другим студентам.
                     </div>
                 </div>
-                <div class="step">
+
+                <!-- Карточка 6 -->
+                <div class="step" onclick="toggleStep(this)">
                     <div class="steps-default">
                         <div class="steps__num">06</div>
                         <div class="steps__title-text">Обмен опытом и развитие</div>
-                    
+                        <div class="steps__arrow"></div>
                     </div>
                     <div class="steps__description">
-                        Обмен опытом и развитиеВы получаете обратную связь, изучаете чужие проекты, участвуете в обсуждениях. Это помогает расти как разработчику и готовиться к будущим задачам в IT-карьере.
+                        Вы получаете обратную связь, изучаете чужие проекты, участвуете в обсуждениях. Это помогает расти как разработчику и готовиться к будущим задачам в IT-карьере.
                     </div>
                 </div>
             </div>
-
-
-        </section>
-
-
+    </section>
+    
 
 
     </main>
 
 
     <footer></footer>
+    <script>
+        function toggleStep(clickedCard) {
+            // Находим все карточки
+            const allCards = document.querySelectorAll('.step');
+            
+            // Проходим по всем карточкам
+            allCards.forEach(card => {
+                if (card === clickedCard) {
+                    // Кликнули на эту карточку - переключаем
+                    card.classList.toggle('active');
+                } else {
+                    // Другие карточки - закрываем
+                    card.classList.remove('active');
+                }
+            });
+        }
+    </script>
 </body>
 </html>

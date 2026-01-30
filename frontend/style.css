@@ -205,35 +205,150 @@ a{
 
 
 
-/* nums */
 
-.steps-default{
-    display: flex;           /* Включаем flexbox */
-    align-items: center;     /* Выравниваем по вертикали по центру */
-    gap: 20px;              /* Расстояние между элементами */  
+
+
+/* ===== STEPS / АККОРДЕОН ===== */
+.steps__content {
+    max-width: 1234px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.step {
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+.steps-default {
+    display: flex;
+    align-items: center;
     padding: 41px 60px;
-    position: relative;
-    width: 1234px;
-    height: 159px;
     background: #F3F3F3;
     border: 1px solid #191A23;
-    box-shadow: 0px 5px 0px #191A23;
     border-radius: 45px;
-    text-align: center;
-    margin: 0 auto;
-    cursor: pointer;
-    margin-bottom:30px;
+    box-shadow: 0px 5px 0px #191A23;
+    position: relative;
 }
 
-.steps-default:active{
-    
+/* Зеленая карточка при открытии */
+.step.active .steps-default {
+    background: var(--green);
+    border-radius: 45px 45px 0 0;
+    border-bottom: none;
+    box-shadow: none;
 }
-.steps__num{
+
+/* Номер этапа */
+.steps__num {
     font-size: 60px;
-    margin-right: 18.5px;
+    font-weight: 700;
+    margin-right: 20px;
 }
-.steps__title-text{
+
+/* Заголовок этапа */
+.steps__title-text {
     font-size: 30px;
+    font-weight: 600;
+    flex-grow: 1;
 }
 
+/* Скрытое описание */
+.steps__description {
+    background: var(--green);
+    border: 1px solid #191A23;
+    border-top: none;
+    border-radius: 0 0 45px 45px;
+    box-shadow: 0px 5px 0px #191A23;
+    padding: 0 60px;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.4s ease;
+}
 
+/* Показанное описание */
+.step.active .steps__description {
+    max-height: 500px;
+    padding: 30px 60px;
+    opacity: 1;
+}
+/* Линия сверху описания */
+.steps__description {
+    background: var(--green);
+    border: 2px solid #191A23;
+    border-top: none;
+    border-radius: 0 0 45px 45px;
+    box-shadow: 0px 5px 0px #191A23;
+    padding: 30px 60px;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+/* Добавляем линию через border-top */
+.step.active .steps__description {
+    max-height: 500px;
+    opacity: 1;
+    padding-top: 60px; /* Больше отступ сверху */
+}
+
+/* Линия как верхняя граница текста */
+.steps__description::before {
+    content: '';
+    position: absolute;
+    top: 30px;
+    left: 60px;
+    right: 60px;
+    height: 1px;
+    background: var(--dark);
+}
+/* Стрелка как псевдоэлемент - размер 58x58 */
+.steps__arrow {
+    position: absolute;
+    right: 60px;
+    width: 58px;
+    height: 58px;
+}
+
+/* Плюс по умолчанию */
+.steps__arrow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('Plus icon.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+/* Минус при открытии */
+.steps__arrow::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('minus icon.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.step.active .steps__arrow::before {
+    opacity: 0;
+}
+
+.step.active .steps__arrow::after {
+    opacity: 1;
+}
