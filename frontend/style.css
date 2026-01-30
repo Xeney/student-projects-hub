@@ -17,7 +17,7 @@ body{
 .hat{
     padding-block: 40px;
 }
-.header__container, .hero__container, .services__content, .advantages__content, .create__content, .examples__content, .feedvack__content, .steps__content{
+.header__container, .hero__container, .services__content, .advantages__content, .create__content, .examples__content, .feedvack__content, .steps__content, .team__content, .means__content, .connect__content{
     max-width: 1440px;
     margin-inline: auto;
     
@@ -141,6 +141,11 @@ a{
     
 }
 
+.examples__content{
+    margin-top:140px ;
+    margin-bottom: 80px;
+    display:flex;
+}
 
 
 
@@ -197,11 +202,7 @@ a{
     right: 0;
 }
 
-.examples__content{
-    margin-top:140px ;
-    margin-bottom: 80px;
-    display:flex;
-}
+
 
 
 
@@ -213,6 +214,7 @@ a{
     max-width: 1234px;
     margin: 0 auto;
     padding: 20px;
+    
 }
 
 .step {
@@ -351,4 +353,69 @@ a{
 
 .step.active .steps__arrow::after {
     opacity: 1;
+}
+
+/*=== Team ===*/
+.team__descriptoin{
+    font-size: 18px;
+    line-height: 23px;
+}
+.team__logo{
+    margin-right: 40px;
+    font-size: 40px;
+    line-height: 51px;
+    font-weight: 500;
+    border: 4px solid var(--green);
+    background-color: var(--green);
+    border-radius: 7px;
+     white-space: nowrap;
+    
+}
+.team__content{
+    margin-top:10px ;
+    margin-bottom: 80px;
+    display:flex;
+}
+
+
+/*=== Means ===*/
+.means__descriptoin{
+    font-size: 18px;
+    line-height: 23px;
+}
+.means__logo{
+    margin-right: 40px;
+    font-size: 40px;
+    line-height: 51px;
+    font-weight: 500;
+    border: 4px solid var(--green);
+    background-color: var(--green);
+    border-radius: 7px;
+     white-space: nowrap;  
+}
+.means__content{
+    margin-top:10px ;
+    margin-bottom: 80px;
+    display:flex;
+}
+
+/*=== connect ===*/
+.connect__descriptoin{
+    font-size: 18px;
+    line-height: 23px;
+}
+.connect__logo{
+    margin-right: 40px;
+    font-size: 40px;
+    line-height: 51px;
+    font-weight: 500;
+    border: 4px solid var(--green);
+    background-color: var(--green);
+    border-radius: 7px;
+     white-space: nowrap;  
+}
+.connect__content{
+    margin-top:10px ;
+    margin-bottom: 80px;
+    display:flex;
 }
