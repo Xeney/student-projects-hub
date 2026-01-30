@@ -17,7 +17,7 @@ body{
 .hat{
     padding-block: 40px;
 }
-.header__container, .hero__container, .services__content, .advantages__content, .create__content{
+.header__container, .hero__container, .services__content, .advantages__content, .create__content, .examples__content, .feedvack__content{
     max-width: 1440px;
     margin-inline: auto;
     
@@ -123,16 +123,22 @@ a{
 .services__content{
     padding-block: 65px 188px;
     display:flex;
-    
+   
 }
-
-.services__logo{
+.services__descriptoin, .examples__descriptoin{
+    font-size: 18px;
+    line-height: 23px;
+}
+.services__logo, .examples__logo {
     margin-right: 40px;
     font-size: 40px;
+    line-height: 51px;
     font-weight: 500;
     border: 4px solid var(--green);
     background-color: var(--green);
     border-radius: 7px;
+     white-space: nowrap;
+    
 }
 
 
@@ -150,10 +156,10 @@ a{
 
 .create__content{
     position: relative;
-
     border: 50px solid #F3F3F3;
     background-color: #F3F3F3;
     border-radius: 45px;
+    margin-bottom: 140px;
 }
 .create__title{
     max-width: 500px;
@@ -190,3 +196,10 @@ a{
     top:-90px;
     right: 0;
 }
+
+.examples__content{
+    margin-top:140px ;
+    margin-bottom: 80px;
+    display:flex;
+}
+
