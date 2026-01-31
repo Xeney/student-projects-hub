@@ -257,23 +257,43 @@
         </section>
 
         <section class="slider">
-            <div class="slider__content">
-                <div class="slider__background"></div>
-
-                <li class="slider__list">
-                    <ul class="slider__list-element" id="el1">
-                        <img src="slider/Card1__slider.png" alt="Отзыв преподавателя">
-
-                    </ul>
-                    <ul class="slider__list-element" id="el2">
-                        <img src="slider/Card2__slider.png" alt="Отзыв преподавателя">
-
-                    </ul>
-                    <ul class="slider__list-element" id="el3">
-                        <img src="slider/Card3__slider.png" alt="Отзыв преподавателя">
-
-                    </ul>
-                </li>          
+            <div class="slider__background"></div>
+            
+            <div class="slider__container">
+                <!-- Кнопки -->
+                <button class="slider__btn prev">←</button>
+                <button class="slider__btn next">→</button>
+                
+                <!-- Слайды -->
+                <div class="slider__track">
+                    <!-- Дублируем последнюю карточку в начало -->
+                    <div class="slide">
+                        <img src="slider/Card3__slider.png" alt="Отзыв 3">
+                    </div>
+                    
+                    <!-- Основные карточки -->
+                    <div class="slide active">
+                        <img src="slider/Card1__slider.png" alt="Отзыв 1">
+                    </div>
+                    <div class="slide">
+                        <img src="slider/Card2__slider.png" alt="Отзыв 2">
+                    </div>
+                    <div class="slide">
+                        <img src="slider/Card3__slider.png" alt="Отзыв 3">
+                    </div>
+                    
+                    <!-- Дублируем первую карточку в конец -->
+                    <div class="slide">
+                        <img src="slider/Card1__slider.png" alt="Отзыв 1">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Точки -->
+            <div class="slider__dots">
+                <span class="dot active" data-index="0"></span>
+                <span class="dot" data-index="1"></span>
+                <span class="dot" data-index="2"></span>
             </div>
         </section>
 
@@ -288,11 +308,6 @@
             
             </div>
         </section>
-
-
-
-
-
     </main>
 
 
@@ -313,6 +328,78 @@
                 }
             });
         }
+    </script>
+
+
+   <script>
+        const track = document.querySelector('.slider__track');
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+        const prevBtn = document.querySelector('.slider__btn.prev');
+        const nextBtn = document.querySelector('.slider__btn.next');
+
+        let currentIndex = 1; // Начинаем с центральной
+        const totalSlides = slides.length;
+        const slideWidth = 33.333; // 33.333% на карточку
+
+        // Функция центрирования
+        function goToSlide(index) {
+            // Убираем active у всех
+            slides.forEach(slide => slide.classList.remove('active'));
+            
+            // Добавляем active текущему
+            slides[index].classList.add('active');
+            
+            // Центрируем - сдвигаем дорожку
+            const offset = (index - 1) * slideWidth;
+            track.style.transform = `translateX(-${offset}%)`;
+            
+            // Обновляем точки (минус 1 из-за дубля в начале)
+            updateDots(index - 1);
+        }
+
+                // Обновляем точки
+                function updateDots(realIndex) {
+                    dots.forEach((dot, index) => {
+                        dot.classList.toggle('active', index === realIndex);
+                    });
+                }
+
+                nextBtn.addEventListener('click', () => {
+            currentIndex++;
+            
+            // Если дошли до последнего дубля
+            if (currentIndex >= slides.length - 1) {
+                // Даём доехать до конца
+                goToSlide(currentIndex);
+                
+                // Через 500мс (после анимации) мгновенно на начало
+                setTimeout(() => {
+                    currentIndex = 1;
+                    goToSlide(currentIndex, true);
+                }, 500);
+            } else {
+                goToSlide(currentIndex);
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            currentIndex--;
+            
+            // Если дошли до первого дубля
+            if (currentIndex <= 0) {
+                // Даём доехать до начала
+                goToSlide(currentIndex);
+                
+                // Через 500мс мгновенно в конец
+                setTimeout(() => {
+                    currentIndex = slides.length - 2;
+                    goToSlide(currentIndex, true);
+                }, 500);
+            } else {
+                goToSlide(currentIndex);
+            }
+        });
     </script>
 </body>
 </html>

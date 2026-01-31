@@ -17,7 +17,7 @@ body{
 .hat{
     padding-block: 40px;
 }
-.header__container, .hero__container, .services__content, .advantages__content, .create__content, .examples__content, .feedback__content, .steps__content, .team__content, .means__content, .connect__content, .teammates__content, .slider__content{
+.header__container, .hero__container, .services__content, .advantages__content, .create__content, .examples__content, .feedback__content, .steps__content, .team__content, .means__content, .connect__content, .teammates__content{
     max-width: 1440px;
     margin-inline: auto;
     
@@ -420,8 +420,6 @@ a{
     display:flex;
 }
 
-
-
 .teammates__list ul {
     display: flex;
     justify-content: center;
@@ -435,25 +433,112 @@ a{
 
 
 
-.slider__background{
-    margin: auto;
+.slider {
+    padding: 80px 20px;
+    position: relative;
+}
+
+.slider__background {
+    position: absolute;
     width: 1240px;
     height: 625px;
-    left: 100px;
-    top: 5692px;
     background: #191A23;
     border-radius: 45px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
 }
-.slider__list{
+
+/* КОНТЕЙНЕР С ОБРЕЗКОЙ */
+.slider__container {
     position: relative;
+    max-width: 1240px;
+    margin: 0 auto;
+    height: 500px; /* Уменьшаем высоту */
+    display: flex;
+    align-items: center;
+    overflow: hidden; /* ← ВАЖНО: обрезает всё что выходит */
+}
+
+/* Дорожка внутри контейнера */
+.slider__track {
+    display: flex;
+    align-items: center;
+    transition: transform 0.5s ease;
+    width: 100%;
+    height: 100%;
+}
+
+/* Карточка */
+.slide {
+    flex: 0 0 33.333%;
     display: flex;
     justify-content: center;
-    gap: 40px;
-    list-style: none;
-    margin: 0;
+    align-items: center;
+    transition: all 0.5s ease;
     padding: 0;
+    height: 100%; /* Занимает всю высоту контейнера */
 }
 
+/* Боковые карточки - опускаем чтобы не выходили */
+.slide:not(.active) {
+    transform: scale(0.6) translateY(10%); /* Опускаем боковые */
+    opacity: 0.35;
+}
 
+/* Центральная карточка - центрируем */
+.slide.active {
+    transform: scale(1.4) translateY(0%); /* Центрируем по вертикали */
+    opacity: 1;
+    z-index: 2;
+}
 
+/* Картинки */
+.slide img {
+    width: 380px;
+    max-width: 100%;
+    border-radius: 20px;
+}
 
+/* Кнопки - опускаем ниже */
+.slider__btn {
+    position: absolute;
+    top: 50%; /* Возвращаем на середину */
+    transform: translateY(-50%);
+    background: #B9FF66;
+    border: 2px solid #000;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.slider__btn.prev {
+    left: 10px;
+}
+
+.slider__btn.next {
+    right: 10px;
+}
+
+.slider__dots {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 40px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+}
+
+.dot.active {
+    background: #B9FF66;
+}
