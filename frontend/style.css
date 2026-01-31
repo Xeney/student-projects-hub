@@ -431,6 +431,10 @@ a{
     padding: 0;
 }
 
+
+
+
+
 .slider__background{
     margin: auto;
     width: 1240px;
@@ -440,7 +444,15 @@ a{
     background: #191A23;
     border-radius: 45px;
 }
-
+.slider__list{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
 
 
 
