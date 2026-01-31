@@ -17,7 +17,7 @@ body{
 .hat{
     padding-block: 40px;
 }
-.header__container, .hero__container, .services__content, .advantages__content, .create__content, .examples__content, .feedvack__content, .steps__content, .team__content, .means__content, .connect__content, .teammates__content{
+.header__container, .hero__container, .services__content, .advantages__content, .create__content, .examples__content, .feedback__content, .steps__content, .team__content, .means__content, .connect__content, .teammates__content, .slider__content{
     max-width: 1440px;
     margin-inline: auto;
     
@@ -323,7 +323,7 @@ a{
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('Plus icon.png');
+    background-image: url('listcards/Plus icon.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -339,7 +339,7 @@ a{
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('minus icon.png');
+    background-image: url('listcards/minus\ icon.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -415,7 +415,7 @@ a{
      white-space: nowrap;  
 }
 .connect__content{
-    margin-top:10px ;
+    margin-top:140px ;
     margin-bottom: 80px;
     display:flex;
 }
@@ -429,6 +429,16 @@ a{
     list-style: none;
     margin: 0;
     padding: 0;
+}
+
+.slider__background{
+    margin: auto;
+    width: 1240px;
+    height: 625px;
+    left: 100px;
+    top: 5692px;
+    background: #191A23;
+    border-radius: 45px;
 }
 
 
