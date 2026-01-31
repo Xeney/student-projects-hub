@@ -17,7 +17,7 @@ body{
 .hat{
     padding-block: 40px;
 }
-.header__container, .hero__container, .services__content, .advantages__content, .create__content, .examples__content, .feedback__content, .steps__content, .team__content, .means__content, .connect__content, .teammates__content{
+.header__container, .hero__container, .services__content, .advantages__content, .create__content, .examples__content, .feedback__content, .steps__content, .team__content, .means__content, .connect__content, .teammates__content, .footer__container{
     max-width: 1440px;
     margin-inline: auto;
     
@@ -415,7 +415,7 @@ a{
      white-space: nowrap;  
 }
 .connect__content{
-    margin-top:140px ;
+    margin-top:120px ;
     margin-bottom: 80px;
     display:flex;
 }
@@ -542,3 +542,48 @@ a{
 .dot.active {
     background: #B9FF66;
 }
+
+
+
+
+
+
+.footer__container{
+    margin-top: 141px;
+    background-color: #292A32;
+    max-width: 1241px;
+    height: 513px;
+    border-top-left-radius: 45px;
+    border-top-right-radius: 45px;
+    
+}
+.footer__nav{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+}
+
+.footer__list{
+    display: flex;
+    gap: 40px;
+    
+}
+
+.footer__list-link{
+       font-weight: 600;
+       font-size: 20px;
+       color: white;
+       transition: all 0.5s;
+       border-bottom: 3px solid white;
+}
+
+.footer__list-link:hover{
+    color: var(--green);
+    border-bottom: 3px solid var(--green);
+    font-weight: 700;
+}
+.footer__logo{
+    padding-right: 155px;
+    
+}
+
