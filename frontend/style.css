@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 20px;
+}
 :root{
     --dark: #000000;
     --gray: #464646;
