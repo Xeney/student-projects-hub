@@ -1,0 +1,89 @@
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 20px;
+}
+:root{
+    --dark: #000000;
+    --gray: #464646;
+    --green: #B9FF66;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body{
+    font-family: "Space Grotesk",sans-serif;
+}
+.hat{
+    padding-block: 40px;
+    background-color: #191A23;
+    
+}
+.header__container{
+    max-width: 1440px;
+    height: 111px;
+    margin-inline: auto;
+    height: 45px;
+    background-color: #191A23;
+   
+}
+
+.header__nav{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    color:white;
+}
+.header__logo{
+    margin-right: 200px;
+}
+.header__list{
+    display: flex;
+    gap: 40px;
+    
+}
+ul{
+    list-style: none;
+}
+.header__list-link{
+       font-weight: 600;
+       font-size: 20px;
+       color: white;
+       transition: all 0.5s;
+       border-bottom: 3px solid white;
+}
+
+.header__list-link:hover{
+    color: var(--green);
+    border-bottom: 3px solid var(--green);
+    font-weight: 700;
+}
+a{
+    text-decoration: none;
+}
+
+.header__button{
+    padding: 20px 35px;
+    border: 2px solid white;
+    border-radius: 14px;
+    color: white;
+    transition: 0.3s;
+}
+
+.header__button:active{
+    background-color: var(--green);
+    color: var(--dark);
+    border: 2px solid var(--green);
+}
+
+.header__button:hover{
+    opacity: 60%;
+    
+}
+#Exit__button{
+    padding-left: 113px;
+}
