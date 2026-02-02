@@ -12,7 +12,15 @@ html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
+.header__container, .footer__container{
+    max-width: 1440px;
+    margin-inline: auto;
+    align-items: center;
+}
+
+
 
 
 body{
@@ -87,3 +95,58 @@ a{
 #Exit__button{
     padding-left: 113px;
 }
+
+
+
+
+/* Подвал */
+.footer__container {
+    margin-top: 141px;
+    background-color: #292A32;
+    max-width: 1241px;
+    height: 135px;
+    border-top-left-radius: 45px;
+    border-top-right-radius: 45px;
+    position: fixed; /* Фиксированное положение */
+    bottom: 0; /* Прижимаем к низу */
+    left: 50%; /* Смещаем в центр по горизонтали */
+    transform: translateX(-50%); /* Корректируем позиционирование по центру */
+    padding: 10px;
+    width: 100%; /* Занимаем всю доступную ширину */
+    box-sizing: border-box; /* Учитываем padding в ширине */
+}
+
+.footer__nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Занимаем всю высоту контейнера */
+    max-width: 1241px; /* Ограничиваем максимальную ширину */
+    margin: 0 auto; /* Центрируем содержимое внутри */
+}
+
+.footer__list{
+    display: flex;
+    gap: 40px;
+    
+}
+
+.footer__list-link{
+       font-weight: 600;
+       font-size: 20px;
+       color: white;
+       transition: all 0.5s;
+       border-bottom: 3px solid white;
+}
+
+.footer__list-link:hover{
+    color: var(--green);
+    border-bottom: 3px solid var(--green);
+    font-weight: 700;
+}
+.footer__logo{
+    padding-right: 155px;
+    
+}
+
+
