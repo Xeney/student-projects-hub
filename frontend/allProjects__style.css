@@ -20,15 +20,13 @@ html {
     align-items: center;
 }
 
-
-
-
 body{
     font-family: "Space Grotesk",sans-serif;
 }
 .hat{
     padding-block: 40px;
     background-color: #191A23;
+    margin-bottom: 60px;
     
 }
 .header__container{
@@ -115,7 +113,6 @@ a{
     width: 100%; /* Занимаем всю доступную ширину */
     box-sizing: border-box; /* Учитываем padding в ширине */
 }
-
 .footer__nav {
     display: flex;
     justify-content: center;
@@ -124,13 +121,11 @@ a{
     max-width: 1241px; /* Ограничиваем максимальную ширину */
     margin: 0 auto; /* Центрируем содержимое внутри */
 }
-
 .footer__list{
     display: flex;
     gap: 40px;
     
 }
-
 .footer__list-link{
        font-weight: 600;
        font-size: 20px;
@@ -138,7 +133,6 @@ a{
        transition: all 0.5s;
        border-bottom: 3px solid white;
 }
-
 .footer__list-link:hover{
     color: var(--green);
     border-bottom: 3px solid var(--green);
@@ -150,3 +144,62 @@ a{
 }
 
 
+
+
+.profile__content {
+    display: flex;
+    align-items:flex-start ;
+    gap: 40px;
+    margin-left: 122px; 
+    max-width: 1440px;
+    margin-inline: auto;
+  
+}
+.profile__avatar {
+    display: flex;
+    flex-direction:column;
+    align-items: flex-start; 
+    margin-left: 122px;
+    margin-bottom: 10px;
+    border-radius: 5;
+}
+.profile__role {
+    background-color:#191A23 ;
+    max-width: 243px;
+    max-height: 46px;
+    color: white;
+    margin-top: 0;
+    height: 46px;
+    width: 243px;
+    display: flex;              
+    align-items: center;        
+    justify-content: center;
+}
+
+.profile__name{
+    margin-top: 25px;
+    font-size: 40px;
+    font-weight: 500;
+}
+.profile__description{
+    margin-top: 14px;
+    font-size: 20px;
+    font-weight: 400;
+    max-width: 550px;
+}
+
+.profile__edit-button{
+    background-color: #191A23;
+    color:white;
+    margin-top: 14px;
+    width: 243px;
+    height: 39px;
+    display: flex;
+    align-items: center;   
+    justify-content: center;
+    border: none;
+    font-size: 20px;
+}
+.profile__edit-button:hover{
+     opacity: 95%;
+}
