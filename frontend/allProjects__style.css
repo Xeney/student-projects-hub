@@ -60,12 +60,12 @@ ul{
        font-size: 20px;
        color: white;
        transition: all 0.5s;
-       border-bottom: 3px solid white;
+       border-bottom: 2px solid white;
 }
 
 .header__list-link:hover{
     color: var(--green);
-    border-bottom: 3px solid var(--green);
+    border-bottom: 2px solid var(--green);
     font-weight: 700;
 }
 a{
@@ -131,7 +131,7 @@ a{
        font-size: 20px;
        color: white;
        transition: all 0.5s;
-       border-bottom: 3px solid white;
+       border-bottom: 2px solid white;
 }
 .footer__list-link:hover{
     color: var(--green);
@@ -203,3 +203,70 @@ a{
 .profile__edit-button:hover{
      opacity: 95%;
 }
+
+.profile__image{
+    position: absolute;
+    margin-left:757px ;
+    opacity: 0.85;
+    z-index: 2;
+    
+}
+
+
+
+
+/* Добавитть новый проект */
+.AddProject__content{
+    max-width: 1440px;
+    margin-inline: auto;
+    align-items: center;
+    margin-top: 160px;
+    background-color: #191A23;
+    width: 1196px;
+    height: 80px;
+    display: flex;
+    flex-direction:row;
+    gap: 600px;
+}
+
+.text-head{
+    padding-left: 80px;
+    color: white;
+    font-size: 25px;
+    text-align: start;
+    justify-content: center;
+    font-weight: 500;
+}
+
+.text-description{
+    color: rgb(175, 175, 175);
+    font-weight: 400;
+    padding-left: 80px;
+}
+
+.AddProject__add{
+    display: flex;
+    justify-content: end;
+    padding-right:  100px;
+    text-align: center
+ 
+}
+.AddProject__add-button{
+    background-color: white;
+    width:90px;
+    height: 40px;
+    align-items: center;
+    border: none;   
+}
+.AddProject__add-button:hover{
+    opacity: 90%;
+}
+
+.AddProject__plus-img{
+    margin-top: 3px;
+    margin-bottom: auto;
+}
+
+
+
+/* дизайн карточки */
