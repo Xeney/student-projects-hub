@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"net/http"
+	"strconv"
 	"time"
 
 	"github.com/Xeney/student-projects-hub/backend/models"
@@ -33,6 +34,16 @@ var projects = []models.Project{
 	},
 }
 
+// Вспомогательная функция для поиска проекта по ID
+func findProjectByID(id int) (*models.Project, int) {
+	for i, project := range projects {
+		if project.ID == id {
+			return &projects[i], i
+		}
+	}
+	return nil, -1
+}
+
 // GetProjects возвращает список всех проектов
 // GET /api/projects
 func GetProjects(c *gin.Context) {
@@ -42,6 +53,36 @@ func GetProjects(c *gin.Context) {
 		"data":     projects,
 		"count":    len(projects),
 		"endpoint": "GET /api/projects",
+	})
+}
+
+// GetProjectByID возвращает проект по ID
+// GET /api/projects/:id
+func GetProjectByID(c *gin.Context) {
+	idStr := c.Param("id")
+	id, err := strconv.Atoi(idStr)
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"status":  "error",
+			"message": "Неверный формат ID",
+			"error":   "ID должен быть числом",
+		})
+		return
+	}
+
+	project, _ := findProjectByID(id)
+	if project == nil {
+		c.JSON(http.StatusNotFound, gin.H{
+			"status":  "error",
+			"message": "Проект не найден",
+			"error":   "Проект с ID " + idStr + " не существует",
+		})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{
+		"status": "success",
+		"data":   project,
 	})
 }
 
@@ -79,10 +120,9 @@ func CreateProject(c *gin.Context) {
 		return
 	}
 
-	// Генерируем новый ID (последний ID + 1)
+	// Генерируем новый ID
 	newID := 1
 	if len(projects) > 0 {
-		// Находим максимальный ID
 		maxID := 0
 		for _, project := range projects {
 			if project.ID > maxID {
@@ -110,4 +150,110 @@ func CreateProject(c *gin.Context) {
 		"message": "Проект успешно создан",
 		"data":    newProject,
 	})
+}
+
+// UpdateProject обновляет существующий проект
+// PUT /api/projects/:id
+func UpdateProject(c *gin.Context) {
+	// Получаем ID из URL
+	idStr := c.Param("id")
+	id, err := strconv.Atoi(idStr)
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"status":  "error",
+			"message": "Неверный формат ID",
+			"error":   "ID должен быть числом",
+		})
+		return
+	}
+
+	// Ищем проект
+	project, index := findProjectByID(id)
+	if project == nil {
+		c.JSON(http.StatusNotFound, gin.H{
+			"status":  "error",
+			"message": "Проект не найден",
+			"error":   "Проект с ID " + idStr + " не существует",
+		})
+		return
+	}
+
+	// Привязываем JSON к структуре
+	var request models.CreateProjectRequest
+	if err := c.ShouldBindJSON(&request); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"status":  "error",
+			"message": "Неверный формат запроса",
+			"error":   err.Error(),
+		})
+		return
+	}
+
+	// Базовая валидация
+	if err := request.Validate(); err != nil {
+		if validationErr, ok := err.(*models.ValidationError); ok {
+			c.JSON(http.StatusBadRequest, gin.H{
+				"status":  "error",
+				"message": "Ошибка валидации",
+				"error":   validationErr.Message,
+				"field":   validationErr.Field,
+			})
+		} else {
+			c.JSON(http.StatusBadRequest, gin.H{
+				"status":  "error",
+				"message": "Ошибка валидации",
+				"error":   err.Error(),
+			})
+		}
+		return
+	}
+
+	// Обновляем проект (сохраняем ID и created_at)
+	projects[index] = models.Project{
+		ID:          project.ID,          // Сохраняем оригинальный ID
+		Title:       request.Title,       // Новое название
+		Description: request.Description, // Новое описание
+		Author:      request.Author,      // Новый автор
+		CreatedAt:   project.CreatedAt,   // Сохраняем оригинальную дату создания
+	}
+
+	// Возвращаем обновленный проект
+	c.JSON(http.StatusOK, gin.H{
+		"status":  "success",
+		"message": "Проект успешно обновлен",
+		"data":    projects[index],
+	})
+}
+
+// DeleteProject удаляет проект
+// DELETE /api/projects/:id
+func DeleteProject(c *gin.Context) {
+	// Получаем ID из URL
+	idStr := c.Param("id")
+	id, err := strconv.Atoi(idStr)
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"status":  "error",
+			"message": "Неверный формат ID",
+			"error":   "ID должен быть числом",
+		})
+		return
+	}
+
+	// Ищем проект
+	project, index := findProjectByID(id)
+	if project == nil {
+		c.JSON(http.StatusNotFound, gin.H{
+			"status":  "error",
+			"message": "Проект не найден",
+			"error":   "Проект с ID " + idStr + " не существует",
+		})
+		return
+	}
+
+	// Удаляем проект из слайса
+	projects = append(projects[:index], projects[index+1:]...)
+
+	// Возвращаем статус 204 No Content
+	c.Status(http.StatusNoContent)
 }

@@ -27,13 +27,19 @@ func main() {
 
 	// Регистрируем маршруты
 	router.GET("/api/projects", handlers.GetProjects)
+	router.GET("/api/projects/:id", handlers.GetProjectByID)
 	router.POST("/api/projects", handlers.CreateProject)
+	router.PUT("/api/projects/:id", handlers.UpdateProject)
+	router.DELETE("/api/projects/:id", handlers.DeleteProject)
 
 	// Запускаем сервер
 	log.Println("Сервер запущен на http://localhost:8080")
 	log.Println("Доступные эндпоинты:")
-	log.Println("  GET  /api/projects  - получить список проектов")
-	log.Println("  POST /api/projects  - создать новый проект")
+	log.Println("  GET    /api/projects      - получить список проектов")
+	log.Println("  GET    /api/projects/:id  - получить проект по ID")
+	log.Println("  POST   /api/projects      - создать новый проект")
+	log.Println("  PUT    /api/projects/:id  - обновить проект")
+	log.Println("  DELETE /api/projects/:id  - удалить проект")
 
 	if err := router.Run(":8080"); err != nil {
 		log.Fatal("Ошибка запуска сервера:", err)
