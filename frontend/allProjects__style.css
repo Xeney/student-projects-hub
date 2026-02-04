@@ -269,4 +269,72 @@ a{
 
 
 
+
+
 /* дизайн карточки */
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1240px;
+    margin: 40px auto 0;
+    justify-content: center;
+}
+
+.Card__Content{
+    margin-top: 40px;
+    max-width: 1440px;
+    margin-inline: auto;
+    height: 198px;
+    width: 588px;
+    position: relative;
+    box-shadow: 7px 7px 15px 0px rgba(34, 60, 80, 0.25);
+    
+}
+
+
+.Card__Github{
+    display: flex;
+    margin: 50px 31px 13px 467px;
+    position: absolute;
+    bottom: 5px;
+    right: 7px;
+    z-index: 2;
+    
+}
+.card__project-ref{
+    border: none;
+    background-color: #010409;
+    height: 40px;
+    width: 90px;
+    cursor: pointer;
+}
+.Git__img{
+    background-color: #010409;
+}   
+.card__project-ref:hover{
+    opacity: 85%;
+}
+
+.Card__Name{
+    padding-top: 14px;
+    margin-left: 51px;
+    font-size: 25px;
+    font-weight: 400;
+}
+
+.Card__Author{
+    margin-left: 51px;
+    margin-bottom: 25px;
+    font-size: 17px;
+    color:rgb(75, 74, 74)
+}
+
+.Card__Description {
+    margin-left: 51px;
+    margin-top: 10px;
+    max-width: 470px;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+
