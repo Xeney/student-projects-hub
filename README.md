@@ -1,6 +1,7 @@
 # 🎓 Student Projects Hub
 
 **Платформа для студентов-разработчиков, где можно делиться учебными проектами и вдохновляться работами других**
+
 [![GitHub](https://img.shields.io/badge/GitHub-Repository-blue)](https://github.com/Xeney/student-projects-hub)
 [![Wiki](https://img.shields.io/badge/Docs-Wiki-green)](https://github.com/Xeney/student-projects-hub/wiki)
 [![Go](https://img.shields.io/badge/Backend-Go-blue)](https://golang.org/)
