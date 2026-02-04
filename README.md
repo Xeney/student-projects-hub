@@ -80,19 +80,19 @@ go run main.go
 - **[Backend API на Go](https://github.com/Xeney/student-projects-hub/wiki/Backend-API-%D0%BD%D0%B0-Go)** — полная документация API
 - **Примеры запросов:**
 
-  ```bash
-  # Получить все проекты
-  GET http://localhost:8080/api/projects
+```bash
+# Получить все проекты
+GET http://localhost:8080/api/projects
 
-  # Создать проект
-  POST http://localhost:8080/api/projects
-  Content-Type: application/json
-  {
-    "title": "Название проекта",
-    "description": "Описание",
-    "author": "Автор"
-  }
-  ```
+# Создать проект
+POST http://localhost:8080/api/projects
+Content-Type: application/json
+{
+  "title": "Название проекта",
+  "description": "Описание",
+  "author": "Автор"
+}
+```
 
 ## 🤝 Командная разработка
 
