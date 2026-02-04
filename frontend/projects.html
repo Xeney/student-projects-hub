@@ -61,6 +61,13 @@
         <section class="cards-container">
             <!-- Карточка 1 -->
             <div class="Card__Content">
+                <div class="Card__menu">
+                    <button class="Card__menu-button">⋯</button>
+                    <div class="Card__dropdown">
+                        <div class="Card__dropdown-item">Редактировать</div>
+                        <div class="Card__dropdown-item delete">Удалить</div>
+                    </div>
+                </div>
                 <div class="Card__Text">
                     <div class="Card__Name">Название проекта</div>
                     <div class="Card__Author">Имя Фамилия</div>
@@ -76,22 +83,7 @@
                 </div>
             </div>
         
-            <!-- Карточка 2 -->
-            <div class="Card__Content">
-                <div class="Card__Text">
-                    <div class="Card__Name">Название проекта 2</div>
-                    <div class="Card__Author">Имя Фамилия</div>
-                    <div class="Card__Description">Второй проект</div>
-                </div>
-                <div class="Card__Github">
-                    <a href="https://github.com/Xeney/student-projects-hub">
-                        <button class="card__project-ref">
-                            <img src="all__projects/github.png" alt="" class="Git__img">
-                        </button>
-                    </a>
-                </div>
-            </div>
-        
+           
             <!-- Будут добавляться новые карточки -->
         </section>
 
@@ -129,6 +121,39 @@
 
         </section>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Открытие/закрытие меню
+            const menuButtons = document.querySelectorAll('.Card__menu-button');
 
+            menuButtons.forEach(button => {
+                button.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    const dropdown = this.nextElementSibling;
+                    dropdown.classList.toggle('show');
+                });
+            });
+
+            // Закрытие меню при клике вне
+            document.addEventListener('click', function () {
+                document.querySelectorAll('.Card__dropdown').forEach(dropdown => {
+                    dropdown.classList.remove('show');
+                });
+            });
+
+            // Действия меню
+            document.querySelectorAll('.Card__dropdown-item').forEach(item => {
+                item.addEventListener('click', function () {
+                    if (this.classList.contains('delete')) {
+                        if (confirm('Удалить эту карточку?')) {
+                            this.closest('.Card__Content').remove();
+                        }
+                    } else {
+                        alert('Редактирование (будет реализовано)');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

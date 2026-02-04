@@ -278,18 +278,14 @@ a{
     gap: 20px;
     max-width: 1240px;
     margin: 40px auto 0;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
-.Card__Content{
-    margin-top: 40px;
-    max-width: 1440px;
-    margin-inline: auto;
+.Card__Content {
     height: 198px;
     width: 588px;
     position: relative;
     box-shadow: 7px 7px 15px 0px rgba(34, 60, 80, 0.25);
-    
 }
 
 
@@ -337,4 +333,67 @@ a{
     word-wrap: break-word;
     overflow: hidden;
 }
+/* меню */
+.Card__menu {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 3;
+}
 
+.Card__menu-button {
+
+    border: none;
+    font-size: 30px;
+    color: #ffffff;
+    cursor: pointer;
+    width: 39px;
+    height: 39px;
+    background-color: #191A23;
+}
+
+.Card__menu-button:hover {
+    opacity: 85%;
+}
+
+.Card__dropdown {
+    position: absolute;
+    top: 35px;
+    right: 0;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: none;
+    min-width: 150px;
+    z-index: 4;
+}
+
+.Card__dropdown.show {
+    display: block;
+}
+
+.Card__dropdown-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s;
+    font-size: 17px;
+}
+
+.Card__dropdown-item:last-child {
+    border-bottom: none;
+    
+}
+
+.Card__dropdown-item:hover {
+    background-color: #f8f8f8;
+    
+}
+
+.Card__dropdown-item.delete {
+    color: #ff4444;
+    font-size: 19px;
+    font-weight: 500;
+}
