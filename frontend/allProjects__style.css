@@ -428,3 +428,63 @@ a{
 .Git__img {
     background-color: #010409;
 }
+
+
+
+/* Дизайн кнопок */
+.Card__Actions {
+    display: flex;
+    gap: 15px;
+    position: absolute;
+    bottom: 14px;
+    right: 12px;
+    z-index: 2;
+}
+
+.card__action-button {
+    border: 2px solid var(--dark);
+    height: 40px;
+    width: 90px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    box-shadow: 0 4px 0 var(--dark);
+    transition: all 0.2s ease;
+}
+
+.card__action-button--open {
+    background-color: var(--green);
+    color: var(--dark);
+}
+
+.card__action-button--open:hover {
+    box-shadow: 0 2px 0 var(--dark);
+    transform: translateY(2px);
+}
+
+.card__action-button--open:active {
+    box-shadow: 0 0 0 var(--dark);
+    transform: translateY(4px);
+}
+
+.card__action-button--github {
+    background-color: #010409;
+    color: white;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+}
+
+.card__action-button--github:hover {
+    box-shadow: 0 2px 0 var(--dark);
+    transform: translateY(2px);
+}
+
+.card__action-button--github:active {
+    box-shadow: 0 0 0 var(--dark);
+    transform: translateY(4px);
+}
+
+.Git__img {
+    background-color: transparent;
+}
