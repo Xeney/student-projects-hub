@@ -62,9 +62,14 @@ function showProjects(projects) {
                 <div class="Card__Description">${project.description || 'Нет описания'}</div>
             </div>
             
-            <div class="Card__Github">
+            <div class="Card__Actions">
+                <a href="project.html?id=${project.id}">
+                    <button class="card__action-button card__action-button--open">
+                        Открыть
+                    </button>
+                </a>
                 <a href="${githubUrl}" target="_blank">
-                    <button class="card__project-ref">
+                    <button class="card__action-button card__action-button--github">
                         <img src="all__projects/github.png" alt="GitHub" class="Git__img">
                     </button>
                 </a>

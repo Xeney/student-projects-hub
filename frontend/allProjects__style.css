@@ -289,15 +289,7 @@ a{
 }
 
 
-.Card__Github{
-    display: flex;
-    margin: 50px 31px 13px 467px;
-    position: absolute;
-    bottom: 5px;
-    right: 7px;
-    z-index: 2;
-    
-}
+
 .card__project-ref{
     border: none;
     background-color: #010409;
@@ -353,7 +345,8 @@ a{
 }
 
 .Card__menu-button:hover {
-    opacity: 85%;
+    opacity: 90%;
+    color:#B9FF66
 }
 
 .Card__dropdown {
@@ -396,4 +389,42 @@ a{
     color: #ff4444;
     font-size: 19px;
     font-weight: 500;
+}
+
+
+
+/* Кнопки карточки */
+
+.Card__Actions {
+    display: flex;
+    gap: 10px;
+    position: absolute;
+    bottom: 5px;
+    right: 7px;
+    z-index: 2;
+}
+
+.card__action-button {
+    border: none;
+    height: 40px;
+    width: 90px;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.card__action-button--open {
+    background-color: var(--green);
+    font-weight: 500;
+}
+
+.card__action-button--github {
+    background-color: #010409;
+}
+
+.card__action-button:hover {
+    opacity: 85%;
+}
+
+.Git__img {
+    background-color: #010409;
 }
