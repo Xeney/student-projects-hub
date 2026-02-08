@@ -27,23 +27,21 @@ function showProjects(projects) {
     const container = document.querySelector('.cards-container');
     container.innerHTML = '';
     
-    // Проверяем что projects - массив
     if (!Array.isArray(projects)) {
         console.error('projects не массив:', projects);
         container.innerHTML = '<p>Ошибка формата данных</p>';
         return;
     }
     
-    // Если нет проектов
     if (projects.length === 0) {
         container.innerHTML = '<p>Пока нет проектов</p>';
         return;
     }
     
-    // Создаём карточки
     projects.forEach(project => {
         const card = document.createElement('div');
         card.className = 'Card__Content';
+        card.dataset.projectId = project.id; // ← ДОБАВЬ ЭТУ СТРОКУ!
         
         const githubUrl = project.githubUrl || '#';
         
@@ -79,7 +77,6 @@ function showProjects(projects) {
         container.appendChild(card);
     });
     
-    // Добавляем обработчики для меню
     initCardMenus();
 }
 
@@ -99,11 +96,46 @@ function initCardMenus() {
         });
     });
     
-    document.querySelectorAll('.Card__dropdown-item.delete').forEach(item => {
+    // Обработчик для редактирования
+    document.querySelectorAll('.Card__dropdown-item:not(.delete)').forEach(item => {
         item.addEventListener('click', function() {
-            console.log('Удалить проект (будет реализовано)');
+            const card = this.closest('.Card__Content');
+            const projectId = card.dataset.projectId; // Получаем ID из data-атрибута
+            window.location.href = `edit.html?id=${projectId}`;
         });
     });
+    
+    // Обработчик для удаления
+    document.querySelectorAll('.Card__dropdown-item.delete').forEach(item => {
+        item.addEventListener('click', function() {
+            const card = this.closest('.Card__Content');
+            const projectId = card.dataset.projectId;
+            deleteProject(projectId);
+        });
+    });
+}
+
+// Функция удаления проекта
+async function deleteProject(projectId) {
+    if (!confirm('Вы уверены, что хотите удалить этот проект?')) {
+        return;
+    }
+    
+    try {
+        const response = await fetch(`http://localhost:8080/api/projects/${projectId}`, {
+            method: 'DELETE'
+        });
+        
+        if (response.ok) {
+            alert('Проект удалён!');
+            loadProjects(); // Перезагружаем список
+        } else {
+            alert('Ошибка при удалении проекта');
+        }
+    } catch (error) {
+        console.error('Ошибка:', error);
+        alert('Не удалось удалить проект');
+    }
 }
 
 // Запускаем когда страница загрузится
