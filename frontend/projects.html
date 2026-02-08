@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Projects Hub - Все проекты</title>
     <link rel="stylesheet" href="allProjects__style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="hat">
@@ -49,42 +52,20 @@
             <div class="AddProject__content">
                 <div class="AddProject__text">
                     <h4 class="text-head">Добавить новый проект</h4>
-                    <h6 class="text-description">Внимание платформа в работает в тестовом режиме</h6>
+                    <h6 class="text-description">Внимание платформа работает в тестовом режиме</h6>
                 </div>
                 <div class="AddProject__add">
-                    <button class="AddProject__add-button"><img src="all__projects/plus.png" alt="Добавить проект" class="AddProject__plus-img"></button>
-                </div>
-            </div>
-            
-        </section>
-
-        <section class="cards-container">
-            <!-- Карточка 1 -->
-            <div class="Card__Content">
-                <div class="Card__menu">
-                    <button class="Card__menu-button">⋯</button>
-                    <div class="Card__dropdown">
-                        <div class="Card__dropdown-item">Редактировать</div>
-                        <div class="Card__dropdown-item delete">Удалить</div>
-                    </div>
-                </div>
-                <div class="Card__Text">
-                    <div class="Card__Name">Название проекта</div>
-                    <div class="Card__Author">Имя Фамилия</div>
-                    <div class="Card__Description">проект на тетриспроект на тетрис дапроект на тетрис да да да нетваываыыф нет
-                        жи есть</div>
-                </div>
-                <div class="Card__Github">
-                    <a href="https://github.com/Xeney/student-projects-hub">
-                        <button class="card__project-ref">
-                            <img src="all__projects/github.png" alt="" class="Git__img">
+                    <a href="edit.html">
+                        <button class="AddProject__add-button">
+                            <img src="all__projects/plus.png" alt="Добавить проект" class="AddProject__plus-img">
                         </button>
                     </a>
                 </div>
             </div>
-        
-           
-            <!-- Будут добавляться новые карточки -->
+        </section>
+
+        <section class="cards-container">
+            <!-- Здесь появятся карточки из бекенда -->
         </section>
 
         
@@ -121,6 +102,9 @@
 
         </section>
     </footer>
+
+
+    
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             // Открытие/закрытие меню
@@ -155,5 +139,8 @@
             });
         });
     </script>
+
+    <script src="projects.js"></script>
+
 </body>
 </html>
