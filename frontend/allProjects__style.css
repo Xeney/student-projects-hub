@@ -271,6 +271,7 @@ a{
     height: 40px;
     align-items: center;
     border: none;   
+    cursor: pointer;
 }
 .AddProject__add-button:hover{
     opacity: 90%;
